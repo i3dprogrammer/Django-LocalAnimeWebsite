@@ -1,0 +1,37 @@
+{% extends "watchanime/header.html" %}
+
+{% block title %}
+	{{title}} - Episode {{episode}}
+{% endblock %}
+
+{% block content %}
+
+<center>
+<div class="col-lg-12">
+	<hr>
+		<h3>
+			{% if lastEpisode %}<a href ="{{lastEpisode}}" class="btn btn-primary" style="float:left">&laquo Previous episode</a>{% endif %}
+			{{title}} - Episode {{episode}}
+			{% if nextEpisode %} <a href ="{{nextEpisode}}" class="btn btn-primary" style="float:right">Next episode &raquo</a> {% endif %}
+		</h3>
+	<hr>
+	<video id="my_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls
+	autoplay data-setup='{"nativeControlsForTouch": false}' preload="auto" width="854px" height="552px">
+		<source src="/static/videos/{{videoPath}}" type="video/mp4">
+	</video>
+	<hr>
+</div>
+<div class="col-lg-12">
+		<table class="table table-bordered table-striped table-hover text-center" style="background-color:white">
+			<tr>
+				<td><h4>Other episodes</p></td>
+			</tr>
+		
+		{% for anime in otherFiles %}
+			<tr>
+				<td><a href="{{anime.path}}">{{title}} - Episode {{anime.episode}}</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+</div>
+{% endblock %}

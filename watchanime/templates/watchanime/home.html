@@ -1,0 +1,33 @@
+{% extends "watchanime/header.html" %}
+
+{% block content %}
+<!--<center><p><b>**NOTE KissAnime is blocked in Africa and someother regions for DMCA reasons. use <a href='http://9anime.to/'>9anime</a> instead, it's much cooler and ad free!</b></p></center>-->
+{% if object_list %}
+	<div class="col-lg-8">
+		<table class="table table-bordered table-striped table-hover text-center" style="background-color:white">
+			<tr>
+				<td><h4>Title</p></td>
+			</tr>
+		{% for anime in object_list %}
+			<tr>
+				<td><a href="{{anime}}">{{anime}}</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+{% endif %}
+	<div class="col-lg-4">
+				<table class="table table-bordered table-striped table-hover" style="background-color:white">
+					<tr>
+						<td><h4>Recently added animes!</h4></td>
+					</tr>
+					{% for anime in recently_added %}
+						<tr>
+							<td>
+								<a href="../{{anime.path}}" title="{{anime.hover}}"> {{anime.name}} - Episode {{anime.episode}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+		</div>
+{% endblock %}

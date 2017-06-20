@@ -1,0 +1,14 @@
+{% extends "watchanime/header.html" %}
+
+{% block content %}
+<div class='text-center'>
+	{% if error %}
+		<h1>Upload failed!</h1>
+		{{error}}
+		<h2><a href='/upload/'>Click here to try again!</a><h2>
+	{% else %}
+		<h1>Upload success!</h1>
+		<h2><a href='/'>Click here to go to the main page!</a><h2>
+	{% endif %}
+</div>
+{% endblock %}

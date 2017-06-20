@@ -1,0 +1,44 @@
+{% extends "watchanime/header.html" %}
+<!--{ extends "watchanime/header.html" %}
+
+{% block content }
+	<h1>Upload failed!</h1>
+	{{error}}
+	<h2><a href='/upload/'>Click here to try again!</a><h2>
+{% endblock }-->
+
+{% block titlte %}
+	{{ title }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="col-lg-8">
+		<table class="table table-bordered table-striped table-hover text-center" style="background-color:white">
+			<tr>
+				<td><h4>Watch {{ title }}</p></td>
+			</tr>
+		
+		{% for anime in files %}
+			<tr>
+				<td><a href="{{anime.path}}">{{title}} - Episode {{anime.episode}}</a></td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+
+	<div class="col-lg-4">
+				<table class="table table-bordered table-striped table-hover" style="background-color:white">
+					<tr>
+						<td><h4>Recently added animes!</h4></td>
+					</tr>
+					{% for anime in recently_added %}
+						<tr>
+							<td>
+								<a href="../{{anime.path}}"> {{anime.name}} - Episode {{anime.episode}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+		</div>
+{% endblock %}

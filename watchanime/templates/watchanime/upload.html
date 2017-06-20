@@ -1,0 +1,29 @@
+{% extends "watchanime/header.html" %}
+
+{% block content %}
+
+<center><h1>{{title}}</h1><br/>
+<li>Please note that now you can upload multiple files at once, for the episode field input the number of the first file.</li>
+<br/>
+<div class='col-md-4 col-sm-offset-4'>
+    <form method='POST' action='.' enctype="multipart/form-data"> {% csrf_token %}
+        {{form.title}} <br/><br/>
+        {{form.otherTitle}} <br/><br/>
+        {{form.episode}} <br/><br/>
+        <label class="btn btn-primary">
+            {{form.file}}
+        </label><br/><br/>
+        <input class='btn btn-primary' type='submit' id='koko' value='Upload!'/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $('#otherTitle').hide()
+    $('select').on('change', function(){
+        if($(this).val() == "Other group")
+            $('#otherTitle').show()
+        else
+            $('#otherTitle').hide()
+    });
+</script>
+{% endblock %}
